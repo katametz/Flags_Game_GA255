@@ -36,15 +36,7 @@ public class EnemyPathing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, 10f))
-        {
-            if (hit.collider.gameObject.CompareTag("Player"))
-            {
-                navMeshAgent.destination = hit.collider.transform.position;
-                isChasingPlayer = true;
-            }
-        }
+       
 
 
 
@@ -72,7 +64,7 @@ public class EnemyPathing : MonoBehaviour
                     isChasingPlayer = false;
 
                     navMeshAgent.destination = patrolPaths[patrolPathIndex].position;
-                    isChasingPlayer = true;
+                    
                 }
             }
 
