@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1326405192797585326}
   - component: {fileID: 9181968623414213581}
   - component: {fileID: 5325952108372234277}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EnemyVisionCone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 4973446485438978519}
   serializedVersion: 2
   m_LocalRotation: {x: -0.4049031, y: 0.39672846, z: -0.57655007, w: 0.5884302}
-  m_LocalPosition: {x: -5.96, y: 1.25, z: 2.4}
-  m_LocalScale: {x: 1.400626, y: 4.2633314, z: 9.630004}
+  m_LocalPosition: {x: -2.38, y: 0, z: 0}
+  m_LocalScale: {x: -1.15, y: 4.2633314, z: 5.81}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9
+  m_VersionIndex: 18
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

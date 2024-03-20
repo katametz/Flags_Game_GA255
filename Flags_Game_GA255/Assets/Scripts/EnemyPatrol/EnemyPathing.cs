@@ -36,7 +36,7 @@ public class EnemyPathing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
 
 
 
@@ -55,7 +55,7 @@ public class EnemyPathing : MonoBehaviour
             }
             else if (isChasingPlayer)
             {
-                if (Vector3.Distance(this.transform.position, player.transform.position) < 0.5f)
+                if (Vector3.Distance(this.transform.position, player.transform.position) < 0.85f)
                 {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
@@ -64,7 +64,7 @@ public class EnemyPathing : MonoBehaviour
                     isChasingPlayer = false;
 
                     navMeshAgent.destination = patrolPaths[patrolPathIndex].position;
-                    
+
                 }
             }
 
@@ -73,7 +73,7 @@ public class EnemyPathing : MonoBehaviour
 
 
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         Debug.Log("Something was hit!");
 
