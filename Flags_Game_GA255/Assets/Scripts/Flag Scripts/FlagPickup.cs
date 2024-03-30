@@ -14,12 +14,16 @@ public class FlagPickup : MonoBehaviour
         inventory = GameObject.FindObjectOfType<InventoryManager>();
     }
 
-            private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player")) 
         {
-            inventory.AddFlag();
-            Destroy(this.gameObject); 
+            if(inventory.numFlag == 0)
+            {
+                inventory.AddFlag();
+                this.gameObject.SetActive(false);
+            }
+            
         }
     }
 
