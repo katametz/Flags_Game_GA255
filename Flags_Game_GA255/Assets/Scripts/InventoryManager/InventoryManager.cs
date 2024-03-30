@@ -22,7 +22,7 @@ public class InventoryManager : MonoBehaviour
 
     public void AddFlag()
     {
-        numFlags++;
+        
     }
     public bool UseFlag()
     {
