@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 
 {
-    public int numKeys; //This variable tracks the number of keys a player has.
+    public int numFlag; 
 
 
     // Start is called before the first frame update
@@ -17,18 +17,18 @@ public class InventoryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void AddFlag()
     {
-        
+        numFlag++;
     }
     public bool UseFlag()
     {
-        if (numKeys > 0)
+        if (numFlag > 0)
         {
-            numKeys--;
+            numFlag--;
             return true;
         }
         else
