@@ -21,6 +21,7 @@ public class FlagPickup : MonoBehaviour
             if(inventory.numFlag == 0)
             {
                 inventory.AddFlag();
+                EventController.instance.OnFlagPickedUp();
                 this.gameObject.SetActive(false);
             }
             
