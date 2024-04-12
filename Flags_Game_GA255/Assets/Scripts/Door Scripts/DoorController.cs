@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -25,6 +26,7 @@ public class DoorController : MonoBehaviour
         } 
     }
 
+    //if door group is greater than 3, randomize two doors. two unique values .........idk. sadge 
     public void ActivateDoor()
     {
         if (doorState == false)
@@ -45,6 +47,6 @@ public class DoorController : MonoBehaviour
 }
 public enum DoorType
 {
-    groupOne,
-    groupTwo
+    groupOne, //= 3 
+    groupTwo, //= 6
 }
