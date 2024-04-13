@@ -8,6 +8,7 @@ TagManager:
   - Flag
   - InventoryManager
   - FlagReturn
+  - Light
   layers:
   - Default
   - TransparentFX

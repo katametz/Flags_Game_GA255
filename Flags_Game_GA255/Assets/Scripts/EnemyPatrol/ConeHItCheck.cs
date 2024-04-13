@@ -13,11 +13,23 @@ public class ConeHItCheck : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player")) 
         {
-            Respawn.instance.RespawnPlayer();
+            
+            RaycastHit hit;
+            Vector3 direction = other.transform.position - this.transform.position;
+            direction = direction.normalized;
+            direction.y = 0f;
+
+            if (Physics.Raycast(this.transform.position, direction, out hit))
+            {
+                if (hit.collider.gameObject.CompareTag("Player"))
+                {
+                    Respawn.instance.RespawnPlayer();
+                }
+            }
         }
     }
 
