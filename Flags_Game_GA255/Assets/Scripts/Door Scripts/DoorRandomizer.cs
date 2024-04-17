@@ -25,7 +25,7 @@ public class DoorRandomizer : MonoBehaviour
         int randomValue = Random.Range(0, DoorSetOne.Count);
         DoorSetOne[randomValue].ActivateDoor();
 
-        GroupTwoRandomize();
+        //GroupTwoRandomize();
     }
 
   

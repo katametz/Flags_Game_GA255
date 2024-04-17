@@ -14,6 +14,7 @@ public class Torch : MonoBehaviour
     {
         torchLight.gameObject.SetActive(true);
         StartCoroutine(DisableTorchAfterTime());
+        //Debug.LogError("TORCH ACTIVATED");
     }
 
     // Update is called once per frame
@@ -39,7 +40,7 @@ public class Torch : MonoBehaviour
 
     IEnumerator DisableTorchAfterTime()
     {
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(25f);
         torchLight.gameObject.SetActive(false);
     }
 }
