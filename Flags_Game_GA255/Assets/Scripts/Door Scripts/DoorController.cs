@@ -16,14 +16,24 @@ public class DoorController : MonoBehaviour
     void Start()
     {
         EventController.instance.FlagPickedUp += ActivateDoor;
-        if(typeOfDoor== DoorType.groupOne) 
+        
+        
+        if (typeOfDoor== DoorType.groupOne) 
         {
             DoorRandomizer.instance.DoorSetOne.Add(this);
         }
         else if(typeOfDoor == DoorType.groupTwo) //can create multiple groups
         {
             DoorRandomizer.instance.DoorSetTwo.Add(this);
-        } 
+        }
+        else if (typeOfDoor == DoorType.layoutTwoDoor)
+        {
+            EventController.instance.FirstFlagReturned += OpenDoor;
+        }
+        else if (typeOfDoor == DoorType.layoutThreeDoor)
+        {
+            EventController.instance.SecondFlagReturned += OpenDoor;
+        }
     }
 
     //if door group is greater than 3, randomize two doors. two unique values .........idk. sadge 
@@ -44,9 +54,20 @@ public class DoorController : MonoBehaviour
 
     }
 
+    public void OpenDoor()
+    {
+        leftDoor.Play("OpenDoor_01");
+        rightDoor.Play("OpenDoor_02");
+        doorState = true;
+    }
+
 }
 public enum DoorType
 {
     groupOne, //= 3 
     groupTwo, //= 6
+
+    layoutTwoDoor,
+    layoutThreeDoor,
+
 }

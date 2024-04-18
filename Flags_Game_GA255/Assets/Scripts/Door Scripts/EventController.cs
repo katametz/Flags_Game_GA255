@@ -36,4 +36,22 @@ public class EventController : MonoBehaviour
         }
     }
 
+    public event Action FirstFlagReturned;
+    public void OnFirstFlagReturned()
+    {
+        if (FirstFlagReturned != null)
+        {
+            FirstFlagReturned();
+        }
+    }
+
+    public event Action SecondFlagReturned;
+    public void OnSecondFlagReturned()
+    {
+        if (SecondFlagReturned != null)
+        {
+            SecondFlagReturned();
+        }
+    }
+
 }

@@ -10,10 +10,10 @@ public class Icon_Moving : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        triangleIcon = GetComponent<Animator>();
 
 
-        triangleIcon.Play("Icon_Top", -1, Random.Range(0f, 1f));
+
+        triangleIcon.Play("Icon_Top");
 
         triangleIcon.SetBool("Loop", true);
 
