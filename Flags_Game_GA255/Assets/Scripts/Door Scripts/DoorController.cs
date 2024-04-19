@@ -15,16 +15,31 @@ public class DoorController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventController.instance.FlagPickedUp += ActivateDoor;
+        
         
         
         if (typeOfDoor== DoorType.groupOne) 
         {
+            EventController.instance.FlagPickedUp += ActivateDoor;
             DoorRandomizer.instance.DoorSetOne.Add(this);
+            ActivateDoor();
+
         }
-        else if(typeOfDoor == DoorType.groupTwo) //can create multiple groups
+        else if(typeOfDoor == DoorType.groupRandom) //can create multiple groups
         {
-            DoorRandomizer.instance.DoorSetTwo.Add(this);
+            EventController.instance.FlagPickedUp += ActivateDoor;
+            int randomValue = Random.Range(0, 2);
+            if(randomValue == 0)
+            {
+                doorState = false;
+                ActivateDoor();
+            }
+            else
+            {
+                doorState = true;
+                ActivateDoor();
+            }
+            //DoorRandomizer.instance.DoorSetTwo.Add(this);
         }
         else if (typeOfDoor == DoorType.layoutTwoDoor)
         {
@@ -66,6 +81,7 @@ public enum DoorType
 {
     groupOne, //= 3 
     groupTwo, //= 6
+    groupRandom,
 
     layoutTwoDoor,
     layoutThreeDoor,

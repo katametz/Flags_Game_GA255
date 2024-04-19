@@ -75,7 +75,7 @@ public class EnemyPathing : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Something was hit!");
+        //Debug.Log("Something was hit!");
 
         if (other.CompareTag("Player"))
         {

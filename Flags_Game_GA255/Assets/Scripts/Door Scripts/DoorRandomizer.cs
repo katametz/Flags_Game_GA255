@@ -7,9 +7,10 @@ public class DoorRandomizer : MonoBehaviour
     public static DoorRandomizer instance;
     public List<DoorController> DoorSetOne = new List<DoorController>();
     public List<DoorController> DoorSetTwo = new List<DoorController>();
-   // public int iterationCount;
-        
-   
+    public List<DoorController> DoorSetThree = new List<DoorController>();
+    // public int iterationCount;
+
+
 
 
 
