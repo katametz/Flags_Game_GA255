@@ -41,7 +41,7 @@ public class CaptureFlagLogic : MonoBehaviour
                         sceneLighting.intensity = 1.5f;
                         Debug.Log("Darkening Scene");
                         Debug.Log("Enemies On");
-                EventController.instance.OnFirstFlagReturned();
+                        EventController.instance.OnFirstFlagReturned();
 
                     }
 
@@ -51,9 +51,13 @@ public class CaptureFlagLogic : MonoBehaviour
                     sceneLighting.intensity = .025f;
                     player.GetComponent<Torch>().enabled = true;
                     Debug.Log("Darkening Scene");
-                EventController.instance.OnSecondFlagReturned();
+                    EventController.instance.OnSecondFlagReturned();
             }
             
+                if (numFlagsCaptured == 3) 
+                { 
+                   //turns on teleporter script and teleporter mesh
+                } 
 
         }
 

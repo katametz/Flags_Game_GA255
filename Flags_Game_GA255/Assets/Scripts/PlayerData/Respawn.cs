@@ -19,6 +19,11 @@ public class Respawn : MonoBehaviour
         SpawnPosition = transform.position;
     }
 
+    public void setRespawnPos(Vector3 pos)
+    {
+        SpawnPosition = pos;
+    }
+
     public void RespawnPlayer()
     {
         transform.position = SpawnPosition;
