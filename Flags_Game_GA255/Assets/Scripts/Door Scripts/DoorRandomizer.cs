@@ -10,14 +10,16 @@ public class DoorRandomizer : MonoBehaviour
     public List<DoorController> DoorSetThree = new List<DoorController>();
     // public int iterationCount;
 
-
+    private int prevOpenGroupOneDoor = -1;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("Randomize", 1);
+        EventController.instance.FlagPickedUp += RandomizeGroupOneDoors;
+
+        Invoke("RandomizeGroupOneDoors", 1);
        // iterationCount = Mathf.Floor(DoorSetOne.Count /2);
     }
 
@@ -44,7 +46,29 @@ public class DoorRandomizer : MonoBehaviour
     }
 
    
-   
+   public void RandomizeGroupOneDoors()
+    {
+        int randomValue = Random.Range(0, DoorSetOne.Count);
+
+        while(randomValue == prevOpenGroupOneDoor)
+        {
+            randomValue = Random.Range(0, DoorSetOne.Count);
+        }
+
+        prevOpenGroupOneDoor = randomValue;
+
+        for(int i = 0; i<DoorSetOne.Count; i++)
+        {
+            if(i == randomValue)
+            {
+                DoorSetOne[i].OpenDoor();
+            }
+            else
+            {
+                DoorSetOne[i].CloseDoor();
+            }
+        }
+    }
     
 
     void Awake()
