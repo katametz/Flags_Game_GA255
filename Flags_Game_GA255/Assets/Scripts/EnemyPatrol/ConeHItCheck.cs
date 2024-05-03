@@ -27,7 +27,9 @@ public class ConeHItCheck : MonoBehaviour
             {
                 if (hit.collider.gameObject.CompareTag("Player"))
                 {
+
                     Respawn.instance.RespawnPlayer();
+                   
                 }
             }
         }

@@ -56,7 +56,7 @@ public class CaptureFlagLogic : MonoBehaviour
             
                 if (numFlagsCaptured == 3) 
                 { 
-                   //turns on teleporter script and teleporter mesh
+                   
                 } 
 
         }
