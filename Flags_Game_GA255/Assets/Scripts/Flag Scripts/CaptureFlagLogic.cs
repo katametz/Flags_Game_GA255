@@ -10,6 +10,7 @@ public class CaptureFlagLogic : MonoBehaviour
     public GameObject enemyGroup1;
     //public GameObject enemyGroup2;
     public GameObject player;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -32,13 +33,14 @@ public class CaptureFlagLogic : MonoBehaviour
                 numFlagsCaptured++;
                 inventoryManager.CaptureFlag();
                 Debug.Log("Flag Captured");
-                //This is where you will turn off the UI as well!
+                
 
             }                 
                     if (numFlagsCaptured == 1)
                     {
                         enemyGroup1.SetActive(true);
                         sceneLighting.intensity = 1.5f;
+                        player.GetComponent<Torch>().enabled = true;
                         Debug.Log("Darkening Scene");
                         Debug.Log("Enemies On");
                         EventController.instance.OnFirstFlagReturned();
@@ -49,14 +51,14 @@ public class CaptureFlagLogic : MonoBehaviour
                 {
                     //enemyGroup2.SetActive(true);
                     sceneLighting.intensity = .025f;
-                    player.GetComponent<Torch>().enabled = true;
                     Debug.Log("Darkening Scene");
                     EventController.instance.OnSecondFlagReturned();
             }
             
                 if (numFlagsCaptured == 3) 
-                { 
-                   
+                {
+               
+                       //win
                 } 
 
         }

@@ -6,6 +6,8 @@ public class FlagPickup : MonoBehaviour
 {
     private GameObject player;
     private InventoryManager inventory;
+    public GameObject Teleporter;
+   // public AudioSource audioSource;
     //public InventoryManager inventoryManager;
 
     // Start is called before the first frame update
@@ -18,13 +20,21 @@ public class FlagPickup : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player")) 
         {
+            //audioSource.Play();
             if(inventory.numFlag == 0)
             {
                 inventory.AddFlag();
                 EventController.instance.OnFlagPickedUp();
+
+                if (Teleporter != null)
+                {
+                    Teleporter.SetActive(true);
+                }
+
                 this.gameObject.SetActive(false);
+               
             }
-            
+
         }
     }
 

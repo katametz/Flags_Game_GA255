@@ -5,13 +5,15 @@ using UnityEngine;
 
 
 
+
 public class DoorController : MonoBehaviour
 {
     public Animator leftDoor;
     public Animator rightDoor;
     public bool doorState;
     public DoorType typeOfDoor;
-
+    private bool isDoorOpen = false;
+   // public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +52,8 @@ public class DoorController : MonoBehaviour
         }
     }
 
+    
+
     //if door group is greater than 3, randomize two doors. two unique values .........idk. sadge 
     public void ActivateDoor()
     {
@@ -75,6 +79,7 @@ public class DoorController : MonoBehaviour
             leftDoor.Play("OpenDoor_01");
             rightDoor.Play("OpenDoor_02");
             doorState = true;
+            //audioSource.Play();
         }
     }
 

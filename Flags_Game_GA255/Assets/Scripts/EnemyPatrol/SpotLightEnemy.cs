@@ -8,6 +8,8 @@ public class SpotLightEnemy : MonoBehaviour
 
     public Transform Player;
     public float speed;
+
+    public float minSpotlightDistance = 60f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,12 @@ public class SpotLightEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()  
     {
+        if (Vector3.Distance(Player.position, this.transform.position) < minSpotlightDistance)
+        {
+            this.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
+            this.transform.GetChild(0).GetComponent<ConeHItCheck>().enabled = false;
 
+        }
         Vector3 dir = Player.transform.position - this.transform.position;
 
         Quaternion lookRot = Quaternion.LookRotation(dir);
