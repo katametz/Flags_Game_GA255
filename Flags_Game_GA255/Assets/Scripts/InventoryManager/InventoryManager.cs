@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,10 +11,15 @@ public class InventoryManager : MonoBehaviour
     public GameObject Flag1; 
     public GameObject Flag2;
     public GameObject Flag3;
+
+    public CanvasGroup returnFlagSprite;
+    public float returnFlagLiveTime = 2.5f;
+    public float returnFlagFadeTime = 2.5f;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        returnFlagSprite.alpha = 0f;
     }
 
     // Update is called once per frame
@@ -25,6 +31,7 @@ public class InventoryManager : MonoBehaviour
     public void AddFlag()
     {
         numFlag++;
+        ReturnFlagSpriteSequence();
     }
 
     public void RemoveFlag()
@@ -62,5 +69,15 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(Flag3);
         }
+    }
+
+    private void ReturnFlagSpriteSequence()
+    {
+        returnFlagSprite.DOKill();
+        returnFlagSprite.alpha = 1f;
+        Sequence sequence = DOTween.Sequence();
+
+        sequence.Insert(returnFlagLiveTime, returnFlagSprite.DOFade(0f, returnFlagFadeTime));
+        sequence.Play();
     }
 }
