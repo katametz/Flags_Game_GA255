@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CaptureFlagLogic : MonoBehaviour
 {
@@ -10,7 +11,13 @@ public class CaptureFlagLogic : MonoBehaviour
     public GameObject enemyGroup1;
     //public GameObject enemyGroup2;
     public GameObject player;
-   
+    public GameObject winScreen;
+    public Sprite flagLeft1;
+    public Sprite flagLeft2;
+    public Sprite flagLeft3;
+    public Image flagsLeftSprite;  
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +28,8 @@ public class CaptureFlagLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+         
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,15 +38,17 @@ public class CaptureFlagLogic : MonoBehaviour
         {
             if (inventoryManager.numFlag > 0)
             {
+                flagsLeftSprite.sprite = flagLeft3; 
                 numFlagsCaptured++;
                 inventoryManager.CaptureFlag();
-                Debug.Log("Flag Captured");
+                Debug.Log("Flag Captured"); 
                 
 
             }                 
                     if (numFlagsCaptured == 1)
                     {
-                        enemyGroup1.SetActive(true);
+                           flagsLeftSprite.sprite = flagLeft2;
+                         enemyGroup1.SetActive(true);
                         sceneLighting.intensity = 1.5f;
                         player.GetComponent<Torch>().enabled = true;
                         Debug.Log("Darkening Scene");
@@ -49,7 +59,9 @@ public class CaptureFlagLogic : MonoBehaviour
 
                 if (numFlagsCaptured == 2)
                 {
-                    //enemyGroup2.SetActive(true);
+
+                   flagsLeftSprite.sprite = flagLeft1;
+
                     sceneLighting.intensity = .025f;
                     Debug.Log("Darkening Scene");
                     EventController.instance.OnSecondFlagReturned();
@@ -57,8 +69,11 @@ public class CaptureFlagLogic : MonoBehaviour
             
                 if (numFlagsCaptured == 3) 
                 {
-               
-                       //win
+                     
+                     winScreen.SetActive(true);
+                       Debug.Log("YOU WIN");
+                 
+
                 } 
 
         }

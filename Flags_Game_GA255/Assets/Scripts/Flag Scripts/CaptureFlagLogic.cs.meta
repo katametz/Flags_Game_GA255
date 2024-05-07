@@ -9,6 +9,8 @@ MonoImporter:
       type: 3}
   - player: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36,
       type: 3}
+  - winScreen: {fileID: 2399188845631573034, guid: 2fba1422576bcc04ba55963535e4ef45,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
