@@ -49,7 +49,7 @@ public class CaptureFlagLogic : MonoBehaviour
                     {
                            flagsLeftSprite.sprite = flagLeft2;
                          enemyGroup1.SetActive(true);
-                        sceneLighting.intensity = 1.5f;
+                        sceneLighting.intensity = 1f;
                         player.GetComponent<Torch>().enabled = true;
                         Debug.Log("Darkening Scene");
                         Debug.Log("Enemies On");

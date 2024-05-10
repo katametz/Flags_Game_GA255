@@ -20,6 +20,7 @@ public class DoorRandomizer : MonoBehaviour
         EventController.instance.FlagPickedUp += RandomizeGroupOneDoors;
 
         Invoke("RandomizeGroupOneDoors", 1);
+
        // iterationCount = Mathf.Floor(DoorSetOne.Count /2);
     }
 
