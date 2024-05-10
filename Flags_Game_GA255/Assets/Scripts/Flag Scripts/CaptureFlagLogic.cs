@@ -15,7 +15,9 @@ public class CaptureFlagLogic : MonoBehaviour
     public Sprite flagLeft1;
     public Sprite flagLeft2;
     public Sprite flagLeft3;
-    public Image flagsLeftSprite;  
+    public Image flagsLeftSprite;
+    public GameObject FlagArrow2;
+    public GameObject FlagArrow3;
 
 
 
@@ -54,6 +56,7 @@ public class CaptureFlagLogic : MonoBehaviour
                         Debug.Log("Darkening Scene");
                         Debug.Log("Enemies On");
                         EventController.instance.OnFirstFlagReturned();
+                        FlagArrow2.SetActive(true);
 
                     }
 
@@ -72,9 +75,10 @@ public class CaptureFlagLogic : MonoBehaviour
                      
                      winScreen.SetActive(true);
                        Debug.Log("YOU WIN");
-                 
+                    FlagArrow3.SetActive(true);
 
-                } 
+
+            } 
 
         }
 
