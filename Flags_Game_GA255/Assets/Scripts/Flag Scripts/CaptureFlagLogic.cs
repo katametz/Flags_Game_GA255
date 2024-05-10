@@ -68,14 +68,16 @@ public class CaptureFlagLogic : MonoBehaviour
                     sceneLighting.intensity = .025f;
                     Debug.Log("Darkening Scene");
                     EventController.instance.OnSecondFlagReturned();
-            }
+                    FlagArrow3.SetActive(true);
+                }
             
                 if (numFlagsCaptured == 3) 
                 {
                      
                      winScreen.SetActive(true);
                        Debug.Log("YOU WIN");
-                    FlagArrow3.SetActive(true);
+                    
+
 
 
             } 
