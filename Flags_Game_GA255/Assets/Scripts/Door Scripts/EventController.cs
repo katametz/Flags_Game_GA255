@@ -54,4 +54,14 @@ public class EventController : MonoBehaviour
         }
     }
 
+    public event Action PlayerSpotted;
+    public void OnPlayerSpotted()
+    {
+        
+        if (PlayerSpotted != null)
+        {
+            PlayerSpotted();
+        }
+    }
+
 }

@@ -18,6 +18,9 @@ public class CaptureFlagLogic : MonoBehaviour
     public Image flagsLeftSprite;
     public GameObject FlagArrow2;
     public GameObject FlagArrow3;
+    public GameObject HoldingFlag;
+    public GameObject PlayerSpotted;
+   
 
 
 
@@ -25,6 +28,9 @@ public class CaptureFlagLogic : MonoBehaviour
     void Start()
     {
         inventoryManager = GetComponent<InventoryManager>();
+        EventController.instance.FlagPickedUp += showHoldingFlag;
+        EventController.instance.PlayerSpotted += hideHoldingFlag;
+        EventController.instance.PlayerSpotted += showSpotted;
     }
 
     // Update is called once per frame
@@ -34,10 +40,38 @@ public class CaptureFlagLogic : MonoBehaviour
 
     }
 
+    public void showSpotted()
+    {
+        PlayerSpotted.SetActive(true);
+        Invoke("delayHide", 2f);
+
+    }
+
+    private void delayHide()
+    {
+        PlayerSpotted.SetActive(false);
+    }
+
+    public void showHoldingFlag()
+    {
+        
+        HoldingFlag.SetActive(true);
+
+    }
+
+    public void hideHoldingFlag()
+    {
+
+        HoldingFlag.SetActive(false);
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("FlagReturn"))
         {
+            hideHoldingFlag();
+
             if (inventoryManager.numFlag > 0)
             {
                 flagsLeftSprite.sprite = flagLeft3; 

@@ -23,6 +23,10 @@ public class ConeHItCheck : MonoBehaviour
         {
             Debug.Log("Player Hit");
             
+
+            
+
+
             RaycastHit hit;
             Vector3 direction = other.transform.position - this.transform.parent.position;
             direction = direction.normalized;
@@ -41,6 +45,7 @@ public class ConeHItCheck : MonoBehaviour
                     if(seenTimer >= timeToRespawn)
                     {
                         Respawn.instance.RespawnPlayer();
+                        EventController.instance.OnPlayerSpotted();
                     }
                     Debug.Log("Player Hit by Raycast");
                     
