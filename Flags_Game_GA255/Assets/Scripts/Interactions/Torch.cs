@@ -7,7 +7,7 @@ public class Torch : MonoBehaviour
     public Light torchLight;
 
     private float currentTimer = 0f;
-    public float torchEnableTime = 5f;
+    public float torchEnableTime = 2f;
 
     // Start is called before the first frame update
     void Start()
