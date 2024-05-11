@@ -20,6 +20,7 @@ public class CaptureFlagLogic : MonoBehaviour
     public GameObject FlagArrow3;
     public GameObject HoldingFlag;
     public GameObject PlayerSpotted;
+    
    
 
 
@@ -70,6 +71,7 @@ public class CaptureFlagLogic : MonoBehaviour
     {
         if(other.gameObject.CompareTag("FlagReturn"))
         {
+            
             hideHoldingFlag();
 
             if (inventoryManager.numFlag > 0)
@@ -81,7 +83,7 @@ public class CaptureFlagLogic : MonoBehaviour
                 
 
             }                 
-                    if (numFlagsCaptured == 1)
+                    if (numFlagsCaptured == 1 && !FlagArrow2.activeInHierarchy)
                     {
                            flagsLeftSprite.sprite = flagLeft2;
                          enemyGroup1.SetActive(true);
@@ -94,7 +96,7 @@ public class CaptureFlagLogic : MonoBehaviour
 
                     }
 
-                if (numFlagsCaptured == 2)
+                if (numFlagsCaptured == 2 && !FlagArrow3.activeInHierarchy)
                 {
 
                    flagsLeftSprite.sprite = flagLeft1;

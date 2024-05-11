@@ -41,8 +41,9 @@ public class Respawn : MonoBehaviour
         {
             Flag3.SetActive(true);
         }
+        
 
-        EventController.instance.OnFlagPickedUp();
+        //EventController.instance.OnFlagPickedUp();
         inventoryManager.RemoveFlag();
     }
 
